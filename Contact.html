@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> D-Tour Website </title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-pzjw8f+ua7Kw1TIq0c5Tc6XbFfNmn02f4uBlToFjLk/04VptftR6d6mfQ49u+nbS" crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            color: white;
+            justify-content: center;
+            align-items: flex-start; /* Align to the top instead of center */
+            background: url('2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        /* Hide the checkbox toggle */
+        #toggleSidebar {
+            display: none; /* Hides the checkbox completely */
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px; /* Hide sidebar by default */
+            background: url('bg.jpeg');
+            overflow-x: hidden;
+            transition: left 0.5s;
+            padding-top: 60px; /* Space at the top */
+        }
+
+        /* Sidebar links */
+        .sidebar a {
+            padding: 25px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        /* Sidebar link hover effect */
+        .sidebar a:hover {
+            background-color: #007bff;
+        }
+
+        /* Toggle Sidebar when checkbox is checked */
+        #toggleSidebar:checked ~ .sidebar {
+            left: 0; /* Slide sidebar into view */
+        }
+
+        /* Open button styling */
+        .open-btn {
+            font-size: 20px;
+            cursor: pointer;
+            background: url('bg.jpeg');
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            position: fixed;
+            top: 15px;
+            left: 5px;
+            z-index: 1;
+        }
+
+        /* Hide open button when sidebar is open */
+        #toggleSidebar:checked ~ .open-btn {
+            display: none;
+        }
+
+        /* Close button styling within sidebar */
+        .close-btn {
+            position: absolute;
+            top: 25px;
+            right: 155px;
+            font-size: 25px;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            background-color: transparent;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            color: white;
+            text-shadow: 
+                -1px -1px 0px black,  
+                 1px -1px 0px black,  
+                -1px  1px 0px black,  
+                 1px  1px 0px black;
+        }
+
+        .contact-container {
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap; /* Ensure columns stack on smaller screens */
+            justify-content: space-between; /* Flexibly space columns */
+            background-color: #2d4e6a; /* Solid background */
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .contact-column {
+            flex: 1;
+            min-width: 250px; /* Prevent shrinking too much */
+            margin: 10px;
+            padding: 20px;
+            box-sizing: border-box;
+            min-height: 200px; /* Ensures that the columns have consistent height */
+        }
+
+        .contact-column h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .contact-column p {
+            line-height: 1.5;
+        }
+
+        .contact-column i {
+            font-size: 2em;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .A {
+            background-color: blue;
+            border: white;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 100%;
+            cursor: pointer;
+        }
+
+        .B {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            border: white;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 100%;
+            cursor: pointer;
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: column; /* Stack columns on smaller screens */
+                padding: 15px;
+            }
+
+            .contact-column {
+                min-width: 100%; /* Ensure columns take full width */
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h2 {
+                font-size: 1.5em; /* Adjust the heading size */
+            }
+
+            .contact-column h3 {
+                font-size: 1em; /* Adjust the column heading size */
+            }
+
+            .A, .B {
+                font-size: 90%; /* Slightly reduce the button size on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="toggleSidebar">
+
+    <!-- Open button -->
+    <label for="toggleSidebar" class="open-btn">&#9776; Menu</label>
+
+    <!-- Sidebar with close button -->
+    <div class="sidebar">
+        <label for="toggleSidebar" class="close-btn">&#9776; Menu</label>
+        <a href="Home.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="D-Tour.html">Explore</a>
+        <a href="Contact.html">Contact Us</a>
+    </div>
+
+    <div class="contact-container">
+        <h2>Get in Touch</h2>
+        <div class="contact-info">
+            <div class="contact-column">
+                <h3>🏠 ADDRESS</h3>
+                <p>7341 Duterte Street<br>Barangay San Francisco<br>Panabo City</p>
+                <p>Purok Tagumpay<br>Barangay Gredu<br>Panabo City</p>
+                <p>Purok Gwapo<br>Barangay Ising<br>Carmen Municipalty</p>
+                <p>PLDT<br>Rose Pharmacy<br>Panabo City</p>
+            </div>
+            <div class="contact-column">
+                <h3>📞 CONTACTS</h3>
+                <p>09272935806<br><a href="https://www.facebook.com/kenji.garcia.988">
+                    <button class="A"> Facebook </button> </a><a href="https://www.instagram.com/axlkenjiii/?hl=en"><br>
+                    <button class="B"> Instagram </button> </a><br></p>
+
+                <p>09518144788<br><a href="https://www.facebook.com/profile.php?id=100085445139396">
+                    <button class="A"> Facebook </button> </a><a href="https://www.instagram.com/andriexx12/"><br>
+                    <button class="B"> Instagram </button> </a><br></p>
+
+                <p>09123456789<br><a href="https://www.facebook.com/profile.php?id=100072689824739">
+                    <button class="A"> Facebook </button> </a><a href="https://www.instagram.com/johncloydmendoza/"><br>
+                    <button class="B"> Instagram </button> </a><br></p>
+
+                <p>09987654321<br><a href="https://www.facebook.com/ryan.respecia.984">
+                    <button class="A"> Facebook </button> </a><a href="https://www.instagram.com/bernardokath/"><br>
+                    <button class="B"> Instagram </button> </a><br></p>
+            </div>
+            <div class="contact-column">
+                <h3>✉️ EMAIL</h3>
+                <p>Axl Kenji M. Garcia<br>akmg991@gmail.com<br><br></p>
+                <p>Andrian A. Ebdani <br>andrian123db@gmail.com<br><br></p>
+                <p>Jhon Carlo Castro<br>jcpogi@gmail.com<br><br></p>
+                <p>Ryan Respecia<br>princessyannie@gmail.com<br><br></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zyCJ7xlpqA03I5p9i2p/6F2WqA8Lt9OekbJ6ghgD" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-dDpy8e23qfuE15vFdHAPjSyNocZ5TxY9HcB6AoVOu/8a9w7l6e9FoK3+PzjfAKRzB" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0c5Tc6XbFfNmn02f4uBlToFjLk/04VptftR6d6mfQ49u+nbS" crossorigin="anonymous"></script>
+</body>
+</html>
